@@ -32,3 +32,15 @@ class Library{
     }
 
 }
+
+
+// modal box
+var modal=document.getElementById("myModal");
+var form=document.getElementById("myForm");
+var btn=document.getElementById("myBtn");
+var span=document.getElementByClassName("close");
+
+btn.onclick=function(){
+   modal.style.display="block";
+}
+
