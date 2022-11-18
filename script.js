@@ -33,14 +33,24 @@ class Library{
 
 }
 
-
 // modal box
-var modal=document.getElementById("myModal");
-var form=document.getElementById("myForm");
-var btn=document.getElementById("myBtn");
-var span=document.getElementByClassName("close");
+let btn = document.getElementById("myBtn");
+let modal = document.getElementById("myModal");
+let close = document.querySelector("span");
 
-btn.onclick=function(){
-   modal.style.display="block";
+btn.onclick = function(){
+    modal.style.display="block";
 }
+
+close.onclick = function(){
+    modal.style.display="none";
+}
+
+window.onclick = function(event){
+    if (event.target == modal){
+        modal.style.display="none";
+    }
+}
+    
+    
 
