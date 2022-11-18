@@ -6,28 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-
+    <script src="script.js" defer></script>
+    
 </head>
 <body>
-    <div class="header">My Library</div>
-    <div class="content">
-        <button class="add" id="myBtn">+Add Book</button>
-    </div>
+<div class="header">My Library</div>
 
-    <div class="modal" id="myModal">
-        <div class="modal-head">Add new book</div>
-        <span class="close">&times;</span>
-        <form id="myForm">          
-            <input name="title" placeholder="Title" id="title"><br>
-            <input name="author" placeholder="Author" id="author"><br>
-            <input name="pages" placeholder="Pages" id="pages"><br>
-            Have you read it? <input type="checkbox" id="isRead"><br>
-            <button type="submit">Submit</button>
-        </form>
-        
+<button class="btn" id="myBtn">Add Book</button>
 
-    </div>
-    <footer class="footer">Copyright 2022 Idinery</footer>
+<div class="modal" id="myModal">
+    <div class="modal-head">Add new book</div>
+    <span class="close">&times;</span>
+    <form id="myForm">        
+        <input name="title" placeholder="Title" id="title"><br>
+        <input name="author" placeholder="Author" id="author"><br>
+        <input name="pages" placeholder="Pages" id="pages"><br>
+        Have you read it? <input name="isRead" type="checkbox" id="isRead"><br>
+        <button class="btn" type="submit">Submit</button>
+    </form>
+</div>
+
+<footer class="footer">Copyright 2022 Idinery</footer>
+
 </body>
+
 </html>
