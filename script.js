@@ -27,10 +27,33 @@ class Library{
         }
     }
 
+    removeBook(title){
+        this.books=this.books.filter((book)=>book.title !==title)
+    }
+
+    getBook(title) {
+        return this.books.find((book) => book.title === title)
+      }
+
     isInLibrary(newBook){
         return this.myBooks.some((book)=>book.title===newBook.title)
     }
 }
+
+const library = new Library()
+
+const bookGrid = document.getElementById('booksGrid');
+
+const updateBookGrid = () => {
+    resetBookGrid()
+    for (let book of library.books) {
+      createBookCard(book)
+    }
+  }
+  
+  const resetBookGrid = () => {
+    bookGrid.innerHTML = ''
+  }
 
 // modal box
 let btn = document.getElementById("myBtn");
@@ -52,6 +75,7 @@ window.onclick = function(event){
     }
 }
 
+// book grid
 const createBookCard=function(book){
     const bookCard=document.createElement("div")
     const title=document.createElement("p")
@@ -69,7 +93,7 @@ const createBookCard=function(book){
     readBtn.onclick=toggleRead
 
     title.textContent = `"${book.title}"`
-    author.textContent = book.author
+    author.textContent = `"${book.author}"`
     pages.textContent = `${book.pages} pages`
     removeBtn.textContent = 'Remove'
   
@@ -78,7 +102,7 @@ const createBookCard=function(book){
       readBtn.classList.add('btn-light-green')
     } else {
       readBtn.textContent = 'Not read'
-      readBtn.classList.add('btn-light-red')
+      readBtn.classList.add('btn-light-red')}
 
       bookCard.appendChild(title)
       bookCard.appendChild(author)
@@ -86,12 +110,31 @@ const createBookCard=function(book){
       buttonGroup.appendChild(readBtn)
       buttonGroup.appendChild(removeBtn)
       bookCard.appendChild(buttonGroup)
-      // booksGrid.appendChild(bookCard)
+      bookGrid.appendChild(bookCard)
+    }
+
+const getBookFormInput = function(){
+    const title = document.getElementById("title").value
+    const author = document.getElementById("author").value
+    const pages = document.getElementById("pages").value
+    const isRead = document.getElementById("isRead").ariaChecked
+    return new Book(title, author, pages, isRead)
+}
+
+const addBook = function(event){
+    event.preventDefault();
+    const newBook = getBookFormInput();
+
+    if (library.isInLibrary(newBook)){
+        errorMsg.textContent = "This book already exists in your library"
+        errorMsg.classList.add('active')
+    } else{
+        library.addBook(newBook);
+        updateBookGrid();
     }
 }
-    
-submit.onclick = function(){
-    submit.style.color="red";
-}
+
+const addBookForm = document.getElementByClassName('add-book-form')[0];
+addBookForm.onsubmit = addBook
     
 
