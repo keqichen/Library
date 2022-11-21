@@ -62,7 +62,7 @@ body{
     text-align: center;
   }
 
-  #myForm{
+  .add-book-form{
     margin: 20px;
     position: absolute;
     left:50%;
@@ -92,4 +92,33 @@ body{
     text-align: center;
     font-size: 50px;
     background-color: transparent;
+  }
+
+  .book-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+    background-color: #aaaaaa;
+    width: 50px;
+    height: 100px;
+  }
+
+  .book-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 20px;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+    line-height: 1.2;
+  }
+
+  .button-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
   }
